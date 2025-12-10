@@ -1,0 +1,11 @@
+joint_name,model_name,armature_inertia_kgm2,mass_kg,radius_m,length_m,max_torque_Nm
+shoulder_pan_joint,FHA-40C-H,10.8,10.8,0.230,0.1438,686.0
+shoulder_lift_joint,FHA-40C-H,10.8,10.8,0.230,0.1438,686.0
+elbow_joint,FHA-32C-H,7.1,6.8,0.057,0.109,204.0
+elbow_joint,FHA-40C-H,10.8,10.8,0.230,0.1438,686.0
+wrist_1_joint,FHA-25C-H,3.2,2.0,0.047,0.103,107.0
+wrist_1_joint,FHA-32C-H,7.1,6.8,0.057,0.109,204.0
+wrist_2_joint,FHA-25C-H,3.2,2.0,0.047,0.103,107.0
+wrist_2_joint,FHA-32C-H,7.1,6.8,0.057,0.109,204.0
+wrist_3_joint,FHA-25C-H,3.2,2.0,0.047,0.103,107.0
+wrist_3_joint,FHA-32C-H,7.1,6.8,0.057,0.109,204.0

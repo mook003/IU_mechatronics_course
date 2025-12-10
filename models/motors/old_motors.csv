@@ -1,0 +1,7 @@
+joint_name,mass_kg,radius_m,length_m
+shoulder_pan_joint,0.68,0.0175,0.0129
+shoulder_lift_joint,0.68,0.0175,0.0129
+elbow_joint,0.60,0.0155,0.01065
+wrist_1_joint,0.33,0.0128,0.01055
+wrist_2_joint,0.33,0.0128,0.01055
+wrist_3_joint,0.33,0.0128,0.01055
