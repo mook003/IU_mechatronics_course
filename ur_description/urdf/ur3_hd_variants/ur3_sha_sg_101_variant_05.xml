@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<mujoco model="ur3">
+  <compiler angle="radian" meshdir="../meshes/ur3/collision/"/>
+
+  <asset>
+    <mesh name="base" content_type="model/stl" file="base.stl"/>
+    <mesh name="shoulder" content_type="model/stl" file="shoulder.stl"/>
+    <mesh name="upperarm" content_type="model/stl" file="upperarm.stl"/>
+    <mesh name="forearm" content_type="model/stl" file="forearm.stl"/>
+    <mesh name="wrist1" content_type="model/stl" file="wrist1.stl"/>
+    <mesh name="wrist2" content_type="model/stl" file="wrist2.stl"/>
+    <mesh name="wrist3" content_type="model/stl" file="wrist3.stl"/>
+  </asset>
+
+  <worldbody>
+    <body name="base_link">
+      <inertial pos="0 0 0" quat="0.5 0.5 -0.5 0.5" mass="2" diaginertia="0.005625 0.00305317 0.00305317"/>
+      <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="base"/>
+      <body name="shoulder_link" pos="0 0 0.1519">
+        <inertial pos="0.000000e+00 0.000000e+00 0.000000e+00" mass="4.950000e+00" diaginertia="1.586444e-02 1.586444e-02 1.348527e-02"/>
+        <joint name="shoulder_pan_joint" pos="0 0 0" axis="0 0 1" range="-6.28319 6.28319" actuatorfrcrange="-330 330" armature="8.000000e+00"/>
+        <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="shoulder"/>
+        <body name="upper_arm_link" pos="0 0.1198 0" quat="0.707107 0 0.707107 0">
+          <inertial pos="0.000000e+00 0.000000e+00 1.218250e-01" mass="6.370000e+00" diaginertia="2.949978e-02 2.949978e-02 1.747903e-02"/>
+          <joint name="shoulder_lift_joint" pos="0 0 0" axis="0 1 0" range="-6.28319 6.28319" actuatorfrcrange="-330 330" armature="8.000000e+00"/>
+          <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="upperarm"/>
+          <body name="forearm_link" pos="0 -0.0925 0.24365">
+            <inertial pos="0.000000e+00 0.000000e+00 1.066250e-01" mass="6.260000e+00" diaginertia="1.555848e-02 1.555848e-02 1.166625e-02"/>
+            <joint name="elbow_joint" pos="0 0 0" axis="0 1 0" range="-3.14159 3.14159" actuatorfrcrange="-150 150" armature="2.200000e+00"/>
+            <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="forearm"/>
+            <body name="wrist_1_link" pos="0 0 0.21325" quat="0.707107 0 0.707107 0">
+              <inertial pos="0.000000e+00 0.000000e+00 0.000000e+00" quat="0.5 0.5 -0.5 0.5" mass="5.800000e+00" diaginertia="1.126167e-02 1.109667e-02 1.020750e-02"/>
+              <joint name="wrist_1_joint" pos="0 0 0" axis="0 1 0" range="-6.28319 6.28319" actuatorfrcrange="-54 54" armature="2.200000e+00"/>
+              <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="wrist1"/>
+              <body name="wrist_2_link" pos="0 0.08505 0">
+                <inertial pos="0.000000e+00 0.000000e+00 0.000000e+00" quat="0.5 0.5 -0.5 0.5" mass="2.800000e+00" diaginertia="5.122667e-03 4.957667e-03 4.294000e-03"/>
+                <joint name="wrist_2_joint" pos="0 0 0" axis="0 0 1" range="-6.28319 6.28319" actuatorfrcrange="-54 54" armature="9.100000e-01"/>
+                <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="wrist2"/>
+                <body name="wrist_3_link" pos="0 0 0.08535">
+                  <inertial pos="0.000000e+00 0.000000e+00 0.000000e+00" quat="0.5 0.5 -0.5 0.5" mass="5.350000e+00" diaginertia="9.996042e-03 9.923854e-03 9.034687e-03"/>
+                  <joint name="wrist_3_joint" pos="0 0 0" axis="0 1 0" range="-6.28319 6.28319" actuatorfrcrange="-54 54" armature="2.200000e+00"/>
+                  <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="wrist3"/>
+                  <body name="ee_link" pos="0 0.0819 0" quat="0.707107 0 0 0.707107">
+                    <geom size="0.005 0.005 0.005" pos="-0.01 0 0" type="box"/>
+                  </body>
+                  <body name="tool0" pos="0 0.0819 0" quat="0.707107 -0.707107 0 0"/>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="base" quat="0 0 0 -1"/>
+    </body>
+  </worldbody>
+<actuator><general name="shoulder_pan_joint_motor_SHA32A-101" joint="shoulder_pan_joint" gear="1.0" ctrlrange="-433.000 433.000"/><general name="shoulder_lift_joint_motor_SHA32A-101" joint="shoulder_lift_joint" gear="1.0" ctrlrange="-433.000 433.000"/><general name="elbow_joint_motor_SHA25A-101" joint="elbow_joint" gear="1.0" ctrlrange="-204.000 204.000"/><general name="wrist_1_joint_motor_SHA25A-101" joint="wrist_1_joint" gear="1.0" ctrlrange="-204.000 204.000"/><general name="wrist_2_joint_motor_SHA20A-101" joint="wrist_2_joint" gear="1.0" ctrlrange="-107.000 107.000"/><general name="wrist_3_joint_motor_SHA25A-101" joint="wrist_3_joint" gear="1.0" ctrlrange="-204.000 204.000"/></actuator></mujoco>
